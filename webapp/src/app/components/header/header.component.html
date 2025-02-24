@@ -1,1 +1,84 @@
-<p>header works!</p>
+<header
+  class="top-0 z-50 sticky bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b w-full"
+>
+  <div class="flex items-center h-14 container">
+    <div class="hidden md:flex mr-4">
+      <a routerLink="/" class="flex items-center space-x-2 mr-6">
+        <span class="hidden sm:inline-block font-bold">Enviro365</span>
+      </a>
+      <nav class="flex items-center space-x-6 font-medium text-sm">
+        <a
+          routerLink="/"
+          class="font-medium text-muted-foreground hover:text-primary text-sm transition-colors"
+          >Home</a
+        >
+        <a
+          routerLink="/pick-up"
+          class="font-medium text-muted-foreground hover:text-primary text-sm transition-colors"
+          >Pick-up</a
+        >
+        <a
+          routerLink="/recycle-bins"
+          class="font-medium text-muted-foreground hover:text-primary text-sm transition-colors"
+          >Recycle Bins</a
+        >
+      </nav>
+    </div>
+    <button
+      (click)="toggleMenu()"
+      class="md:hidden hover:bg-transparent focus-visible:bg-transparent mr-2 px-0 focus-visible:ring-0 focus-visible:ring-offset-0 text-base"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="w-5 h-5"
+      >
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+      <span class="sr-only">Toggle Menu</span>
+    </button>
+    <div
+      *ngIf="isMenuOpen"
+      class="md:hidden z-50 fixed inset-0 bg-background/80 backdrop-blur-sm"
+    >
+      <div
+        class="left-0 fixed inset-y-0 bg-background shadow-lg w-3/4 max-w-sm"
+      >
+        <div class="p-6">
+          <a routerLink="/" class="flex items-center space-x-2">
+            <span class="font-bold">Enviro365</span>
+          </a>
+          <nav class="flex flex-col space-y-4 mt-6">
+            <a
+              routerLink="/"
+              (click)="toggleMenu()"
+              class="font-medium text-muted-foreground hover:text-primary text-sm transition-colors"
+              >Home</a
+            >
+            <a
+              routerLink="/pick-up"
+              (click)="toggleMenu()"
+              class="font-medium text-muted-foreground hover:text-primary text-sm transition-colors"
+              >Pick-up</a
+            >
+            <a
+              routerLink="/recycle-bins"
+              (click)="toggleMenu()"
+              class="font-medium text-muted-foreground hover:text-primary text-sm transition-colors"
+              >Recycle Bins</a
+            >
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
