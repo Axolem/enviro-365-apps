@@ -1,13 +1,15 @@
-import { Component } from '@angular/core';
+
+import { Component,  } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
+import { HeaderComponent } from './components/header/header.component';
+
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HlmButtonDirective],
+  imports: [RouterOutlet, HeaderComponent],
   templateUrl: './app.component.html',
   styles: [],
 })
-export class AppComponent {
-  title = 'webapp';
+export class AppComponent  {
+  title = 'Enviro365 - WMA';
 }

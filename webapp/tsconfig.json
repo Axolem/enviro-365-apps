@@ -16,6 +16,7 @@
     "target": "ES2022",
     "module": "ES2022",
     "paths": {
+      "#/*": ["./src/*"],
       "@spartan-ng/ui-badge-helm": [
         ".\\src/app/components/ui/ui-badge-helm/src/index.ts"
       ],
