@@ -1,0 +1,13 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Application" type="springBootConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+    <envs>
+      <env name="spring_profiles_active" value="default" />
+      <env name="spring_output_ansi_enabled" value="always" />
+    </envs>
+    <option name="MAIN_CLASS_NAME" value="com.enviro.assessment.inter001.axolemaranjana.Application" />
+    <module name="axolemaranjana" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
