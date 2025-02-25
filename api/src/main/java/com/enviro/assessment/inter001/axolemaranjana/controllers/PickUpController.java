@@ -13,7 +13,6 @@ import java.util.List;
 import java.util.Map;
 
 
-
 @RestController
 @RequestMapping("/api/v1/pick-up")
 public class PickUpController {
@@ -26,7 +25,7 @@ public class PickUpController {
     public ResponseEntity<Map<String, Object>> getAll() {
         try {
             List<PickUp> pickUps = pickUpService.getAllPickUps(); // Assuming this returns a List
-            if (pickUps == null || pickUps.isEmpty()){
+            if (pickUps == null || pickUps.isEmpty()) {
                 return responseBuilder.buildErrorResponse("No pick ups found", HttpStatus.OK);
             }
             return responseBuilder.buildSuccessResponse("Pick ups retrieved successfully", pickUps, pickUps.size(), HttpStatus.OK);
@@ -38,17 +37,17 @@ public class PickUpController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<Map<String, Object>> create(@Valid @RequestBody PickUp pickUp){
+    public ResponseEntity<Map<String, Object>> create(@Valid @RequestBody PickUp pickUp) {
         try {
             PickUp newPickUp = pickUpService.createNew(pickUp);
-            if (newPickUp == null){
-                return responseBuilder.buildErrorResponse("Failed to create pick up",HttpStatus.BAD_REQUEST);
+            if (newPickUp == null) {
+                return responseBuilder.buildErrorResponse("Failed to create pick up", HttpStatus.BAD_REQUEST);
             }
 
-            return responseBuilder.buildSuccessResponse("Created a new pick up successfully", newPickUp,1,HttpStatus.CREATED);
+            return responseBuilder.buildSuccessResponse("Created a new pick up successfully", newPickUp, 1, HttpStatus.CREATED);
         } catch (Exception e) {
             e.printStackTrace();
-            return responseBuilder.buildErrorResponse("Failed creating new pick up",e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
+            return responseBuilder.buildErrorResponse("Failed creating new pick up", e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
     }
