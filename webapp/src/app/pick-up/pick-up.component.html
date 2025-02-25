@@ -1,1 +1,75 @@
-<p>pick-up works!</p>
+<div class="grid grid-cols-1 md:grid-cols-5">
+  <div class="col-span-3">
+    <ul>
+      <li>
+        <div>
+          <h3>Available Pick Up Locations</h3>
+          <ul>
+            <li>Location 1</li>
+            <li>Location 2</li>
+            <li>Location 3</li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="col-span-2">
+    <form [formGroup]="newPickUpForm">
+      <div>
+        <h2>New Pick Up</h2>
+
+        <div>
+          <brn-select
+            class="inline-block"
+            placeholder="Select an option"
+            id="wasteType"
+            name="wasteType"
+          >
+            <hlm-select-trigger class="w-56">
+              <hlm-select-value />
+            </hlm-select-trigger>
+            <hlm-select-content>
+              <hlm-option value="Refresh">Refresh</hlm-option>
+              <hlm-option value="Settings">Settings</hlm-option>
+              <hlm-option value="Help">Help</hlm-option>
+              <hlm-option value="Signout">Sign out</hlm-option>
+            </hlm-select-content>
+          </brn-select>
+        </div>
+
+        <div>
+          <label hlmLabel for="pickupDate">Pick Up Date:</label>
+          <hlm-calendar
+            [(date)]="newPickUpForm.value.pickupDate"
+            [min]="minDate"
+            [max]="maxDate"
+            id="pickupDate"
+            name="pickupDate"
+(dateChange)="dateChange($event)"
+          />
+        </div>
+
+        <div>
+          <label hlmLabel for="pickupTime">Pick Up Time:</label>
+          <input
+            hlmInput
+            type="time"
+            id="pickupTime"
+            name="pickupTime"
+            required
+            min="09:00"
+            max="16:00"
+          />
+        </div>
+
+        <!-- {{.strigyfy(newPickUpForm.errors)}} -->
+
+        <div>
+          <button [disabled]="!newPickUpForm.valid" hlmBtn type="submit">
+            Schedule Pick Up
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
