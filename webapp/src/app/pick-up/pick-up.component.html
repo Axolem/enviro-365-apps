@@ -3,11 +3,13 @@
     <ul>
       <li>
         <div>
-          <h3>Available Pick Up Locations</h3>
+          <h3>Active Pick ups</h3>
           <ul>
-            <li>Location 1</li>
-            <li>Location 2</li>
-            <li>Location 3</li>
+            @for (item of pickUps.value()?.data?.items; track item.id) {
+              <li>
+                {{item.date}}
+              </li>
+            }
           </ul>
         </div>
       </li>
@@ -24,15 +26,15 @@
             placeholder="Select an option"
             id="wasteType"
             name="wasteType"
+            (valueChange)="typeOnChange($event)"
           >
             <hlm-select-trigger class="w-56">
               <hlm-select-value />
             </hlm-select-trigger>
             <hlm-select-content>
-              <hlm-option value="Refresh">Refresh</hlm-option>
-              <hlm-option value="Settings">Settings</hlm-option>
-              <hlm-option value="Help">Help</hlm-option>
-              <hlm-option value="Signout">Sign out</hlm-option>
+              @for (item of wasteTypes.value()?.data?.items; track item.id) {
+              <hlm-option [value]="item.id">{{ item.name }}</hlm-option>
+              }
             </hlm-select-content>
           </brn-select>
         </div>
@@ -45,7 +47,7 @@
             [max]="maxDate"
             id="pickupDate"
             name="pickupDate"
-(dateChange)="dateChange($event)"
+            (dateChange)="dateChange($event)"
           />
         </div>
 
@@ -59,13 +61,15 @@
             required
             min="09:00"
             max="16:00"
+            (change)="timeChange($event.target)"
           />
         </div>
 
         <!-- {{.strigyfy(newPickUpForm.errors)}} -->
-
         <div>
-          <button [disabled]="!newPickUpForm.valid" hlmBtn type="submit">
+          <button 
+            (click)="onSubmit()"
+            hlmBtn type="submit">
             Schedule Pick Up
           </button>
         </div>
@@ -73,3 +77,4 @@
     </form>
   </div>
 </div>
+<hlm-toaster />
