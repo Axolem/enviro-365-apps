@@ -16,7 +16,9 @@
     "target": "ES2022",
     "module": "ES2022",
     "paths": {
-      "#/*": ["./src/*"],
+      "#/*": [
+        "./src/*"
+      ],
       "@spartan-ng/ui-badge-helm": [
         ".\\src/app/components/ui/ui-badge-helm/src/index.ts"
       ],
@@ -49,6 +51,9 @@
       ],
       "@spartan-ng/ui-typography-helm": [
         ".\\src/app/components/ui/ui-typography-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-calendar-helm": [
+        ".\\src/app/components/ui/ui-calendar-helm/src/index.ts"
       ]
     }
   },
